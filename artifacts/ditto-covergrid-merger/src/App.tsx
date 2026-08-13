@@ -51,33 +51,33 @@ type SectionId =
   | 'next-steps';
 
 const navItems: { id: SectionId; label: string; icon: typeof Target }[] = [
-  { id: 'summary', label: 'Executive summary', icon: Target },
-  { id: 'rationale', label: 'Strategic rationale', icon: Network },
-  { id: 'comparables', label: 'Comparables', icon: Scale },
-  { id: 'financials', label: 'Financial baseline', icon: BarChart3 },
-  { id: 'synergy', label: 'Synergy model', icon: Sparkles },
-  { id: 'valuation', label: 'Valuation & terms', icon: Landmark },
-  { id: 'structure', label: 'Decision matrix', icon: GitMerge },
-  { id: 'risks', label: 'Critical risks', icon: ShieldAlert },
-  { id: 'roadmap', label: 'Integration roadmap', icon: Clock3 },
-  { id: 'red-lines', label: 'Board red lines', icon: CircleAlert },
-  { id: 'simulator', label: 'Live simulator', icon: Gauge },
-  { id: 'next-steps', label: 'Next steps', icon: ArrowRight },
+  { id: 'summary', label: 'The recommendation', icon: Target },
+  { id: 'rationale', label: 'Why it makes sense', icon: Network },
+  { id: 'comparables', label: 'What similar deals teach us', icon: Scale },
+  { id: 'financials', label: 'Starting numbers', icon: BarChart3 },
+  { id: 'synergy', label: 'How growth is created', icon: Sparkles },
+  { id: 'valuation', label: 'Is the price fair?', icon: Landmark },
+  { id: 'structure', label: 'Options', icon: GitMerge },
+  { id: 'risks', label: 'What could go wrong', icon: ShieldAlert },
+  { id: 'roadmap', label: 'The first 18 months', icon: Clock3 },
+  { id: 'red-lines', label: 'Walk-away limits', icon: CircleAlert },
+  { id: 'simulator', label: 'Try the numbers', icon: Gauge },
+  { id: 'next-steps', label: 'What happens next', icon: ArrowRight },
 ];
 
 const proFormaData = [
-  { year: 'FY26', ditto: 149, covergrid: 174, ebitda: 27 },
-  { year: 'FY27', ditto: 208, covergrid: 234, ebitda: 41 },
-  { year: 'FY28', ditto: 281, covergrid: 305, ebitda: 62 },
-  { year: 'FY29', ditto: 365, covergrid: 381, ebitda: 88 },
-  { year: 'FY30', ditto: 457, covergrid: 457, ebitda: 127 },
-  { year: 'FY31', ditto: 571, covergrid: 526, ebitda: 176 },
+  { year: 'FY26 (Act)', ditto: 149, covergrid: 174, ebitda: 27 },
+  { year: 'FY27E', ditto: 208, covergrid: 234, ebitda: 41 },
+  { year: 'FY28E', ditto: 281, covergrid: 305, ebitda: 62 },
+  { year: 'FY29E', ditto: 365, covergrid: 381, ebitda: 88 },
+  { year: 'FY30E', ditto: 457, covergrid: 457, ebitda: 127 },
+  { year: 'FY31E', ditto: 571, covergrid: 526, ebitda: 176 },
 ];
 
 const baselineRows = [
   ['Revenue', '₹149 Cr', '₹174 Cr'],
-  ['EBITDA', '₹11 Cr', '₹16 Cr'],
-  ['EBITDA Margin', '7.4%', '9.2%'],
+  ['Operating earnings (EBITDA)', '₹11 Cr', '₹16 Cr'],
+  ['Operating margin (EBITDA)', '7.4%', '9.2%'],
   ['Cash', '₹42 Cr', '₹14 Cr'],
   ['Debt', 'Nil', '₹28 Cr'],
   ['Net Cash / (Debt)', '₹42 Cr', '(₹14 Cr)'],
@@ -91,24 +91,24 @@ const funnelSteps = [
 ];
 
 const scenarios = [
-  { name: 'Conservative', fy28: 4, fy31: 18, description: 'High friction in B2B2C cross-selling. CoverGrid NPS issues limit employee engagement; basic tech consolidation only.' },
-  { name: 'Base', fy28: 8, fy31: 35, description: 'Standard 2–3% conversion of the employee base to personal retail policies. Duplicative operational costs eliminated successfully.' },
-  { name: 'Aggressive', fy28: 14, fy31: 62, description: 'Seamless trust transfer. Ditto becomes the default financial wellness portal for all 600+ employers; cross-sell rates hit 5–7%.' },
+  { name: 'Conservative', fy28: 4, fy31: 18, description: 'Employee take-up is slow because CoverGrid’s customer score is weak. Only basic systems savings are achieved.' },
+  { name: 'Base', fy28: 8, fy31: 35, description: '2–3% of employees buy personal policies, while duplicate teams, tools, and marketing costs are removed.' },
+  { name: 'Aggressive', fy28: 14, fy31: 62, description: 'Ditto becomes the go-to money and insurance advice portal for 600+ employers, with 5–7% of employees buying personal cover.' },
 ];
 
 const decisionOptions = [
-  { title: 'Proceed on proposed terms', score: 'High', trust: 'Severe', integration: 'High', verdict: 'Reject', tone: 'red', detail: "Three years of autonomous founder control protects a commission-driven culture and risks Ditto's trust-first brand." },
-  { title: 'Renegotiate', score: 'High', trust: 'Moderate (Controlled)', integration: 'Moderate', verdict: 'Accept', tone: 'green', detail: 'Accept 30% + ₹25 Cr, but replace founder autonomy with a standard 12-month earn-out tied to Ditto compliance metrics.' },
-  { title: 'Acquire minority stake', score: 'Low', trust: 'Low', integration: 'Low', verdict: 'Reject', tone: 'muted', detail: "A minority position does not grant Ditto the authority to fix CoverGrid's declining 42 NPS." },
-  { title: 'Strategic partnership', score: 'Medium', trust: 'Low', integration: 'Low', verdict: 'Backup', tone: 'amber', detail: 'A referral agreement avoids capital outlay but yields terrible conversion rates compared to native platform integration.' },
-  { title: 'Walk away', score: 'Zero', trust: 'Zero', integration: 'Zero', verdict: 'Reject', tone: 'muted', detail: 'The opportunity to capture employees at the start of their financial journey is too strategically valuable.' },
+  { title: 'Proceed on proposed terms', score: 'High', trust: 'Severe', integration: 'High', verdict: 'Reject', tone: 'red', detail: "Three years of founder control would leave a commission-led culture outside Ditto’s advice standards and put the brand at risk." },
+  { title: 'Renegotiate', score: 'High', trust: 'Moderate (Controlled)', integration: 'Moderate', verdict: 'Accept', tone: 'green', detail: 'Keep the 30% equity and ₹25 Cr cash, but replace founder autonomy with a 12-month performance period tied to customer satisfaction and compliance.' },
+  { title: 'Acquire minority stake', score: 'Low', trust: 'Low', integration: 'Low', verdict: 'Reject', tone: 'muted', detail: "A small stake would not give Ditto enough control to improve CoverGrid’s declining customer score of 42." },
+  { title: 'Strategic partnership', score: 'Medium', trust: 'Low', integration: 'Low', verdict: 'Backup', tone: 'amber', detail: 'A referral deal avoids the upfront cash payment, but it would convert far fewer employees than a shared platform.' },
+  { title: 'Walk away', score: 'Zero', trust: 'Zero', integration: 'Zero', verdict: 'Reject', tone: 'muted', detail: 'The opportunity is too valuable: CoverGrid reaches employees at the moment they first start thinking about insurance.' },
 ];
 
 const roadmap = [
-  { period: 'Day 0–30', title: 'Data harmonization & security', icon: LockKeyhole, detail: 'Audit all data on CoverGrid’s 5.8 lakh employees before network environments are bridged. Security controls first.' },
-  { period: 'Month 1–3', title: 'Compensation redesign', icon: ShieldAlert, detail: "Move from high-variable commissions to Ditto's model: higher base salaries with bonuses tied to CSAT and policy retention." },
-  { period: 'Month 6–12', title: 'Technology unification', icon: GitMerge, detail: 'Sunset the legacy claims and enrollment portal. Migrate all 640 employer clients to the unified Ditto Workplace backend.' },
-  { period: 'Month 18', title: 'Brand phase-out', icon: Sparkles, detail: 'Co-brand as “CoverGrid by Ditto” through the transition window before full absorption into the Ditto master brand.' },
+  { period: 'Pre-close · Day 0–30', title: 'Keep customer data safe', icon: LockKeyhole, detail: 'Review all data on CoverGrid’s 5.8 lakh employees before the two network environments are connected. Align security controls first.' },
+  { period: 'Month 1–3', title: 'Change how teams are paid', icon: ShieldAlert, detail: 'Move away from high-variable commissions. Use higher base salaries and bonuses tied to customer satisfaction and policy retention.' },
+  { period: 'Month 6–12', title: 'Bring the tools together', icon: GitMerge, detail: 'Retire the old claims and enrollment portal. Move all 640 employer clients to the unified “Ditto Workplace” backend.' },
+  { period: 'Month 18', title: 'Retire the old brand', icon: Sparkles, detail: 'Use “CoverGrid by Ditto” during the transition, then bring the business fully under the Ditto master brand.' },
 ];
 
 const CountUp = ({ value, prefix = '', suffix = '', decimals = 0 }: { value: number; prefix?: string; suffix?: string; decimals?: number }) => {
@@ -122,7 +122,7 @@ const CountUp = ({ value, prefix = '', suffix = '', decimals = 0 }: { value: num
       let start: number | null = null;
       const frame = (time: number) => {
         if (start === null) start = time;
-        const progress = Math.min((time - start) / 900, 1);
+        const progress = Math.min((time - start) / 300, 1);
         setDisplay(value * (1 - Math.pow(1 - progress, 3)));
         if (progress < 1) requestAnimationFrame(frame);
       };
@@ -153,17 +153,17 @@ function Hero({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
       <div className="absolute right-[13%] top-[18%] h-44 w-44 rounded-full border border-[rgba(26,208,121,.22)] after:absolute after:inset-5 after:rounded-full after:border after:border-[rgba(120,203,215,.18)]" />
       <div className="page-frame relative flex min-h-[700px] flex-col justify-between pb-16 pt-16">
         <div className="flex items-center justify-between">
-          <div className="eyebrow flex items-center gap-3 text-[var(--green-soft)]"><span className="h-2 w-2 bg-[var(--green)]" /> Confidential / M&A strategy team</div>
+          <div className="eyebrow flex items-center gap-3 text-[var(--green-soft)]"><span className="h-2 w-2 bg-[var(--green)]" /> Confidential / strategy review</div>
           <div className="mono text-[10px] tracking-[.15em] text-[#68767d]">INDIA · FY26–FY31</div>
         </div>
         <div className="grid items-end gap-14 lg:grid-cols-[1.15fr_.85fr]">
           <div>
-            <div className="reveal is-visible section-kicker"><span>00 / thesis</span> Boardroom memo</div>
+            <div className="reveal is-visible section-kicker"><span>00 / recommendation</span> Merger brief</div>
             <h1 className="reveal is-visible mt-7 max-w-[860px] font-[var(--app-font-serif)] text-[clamp(58px,9vw,144px)] font-medium leading-[.84] tracking-[-.08em]" style={{ transitionDelay: '120ms' }}>
               The Ditto<span className="text-[var(--green)]">–</span><br />CoverGrid<br /><span className="text-[#74848b]">Merger.</span>
             </h1>
             <p className="reveal is-visible mt-10 max-w-[560px] text-lg leading-relaxed text-[#a7b4b7]" style={{ transitionDelay: '220ms' }}>
-              Unlocking workplace distribution while protecting the trust-first advisory model.
+              Use CoverGrid’s workplace reach to bring Ditto’s straightforward insurance advice to more people.
             </p>
             <button className="reveal is-visible mt-10 flex items-center gap-3 border-b border-[var(--green)] pb-2 font-mono text-[10px] uppercase tracking-[.17em] text-[var(--green-soft)] transition-colors hover:text-[var(--green)]" style={{ transitionDelay: '320ms' }} onClick={() => onNavigate('summary')} data-testid="button-read-thesis">
               Read the recommendation <ArrowDownRight size={15} />
@@ -177,8 +177,8 @@ function Hero({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
           </div>
         </div>
         <div className="flex items-center justify-between border-t border-[var(--line)] pt-5 text-[10px] text-[#68767d]">
-          <span className="mono uppercase tracking-[.12em]">A trust-first distribution play</span>
-          <span className="hidden sm:block">M&A Strategy Team · Private & confidential</span>
+          <span className="mono uppercase tracking-[.12em]">A distribution deal built around clear advice</span>
+          <span className="hidden sm:block">Strategy review team · Private & confidential</span>
         </div>
       </div>
     </section>
@@ -187,10 +187,10 @@ function Hero({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
 
 function ExecutiveSummary() {
   const cards = [
-    { label: 'The verdict', title: 'Proceed with a renegotiated merger.', text: 'The channel is too strategically valuable to leave on the table — but governance must be brought inside the Ditto model.', icon: Target, accent: 'green' },
-    { label: 'Financial stance', title: '30% equity + ₹25 Cr cash is accretive.', text: "CoverGrid's net debt position and lower quality of earnings make the proposed price favorable to Ditto.", icon: TrendingUp, accent: 'green' },
-    { label: 'Strategic rationale', title: 'Acquire the moment of insurance education.', text: '640 employers and nearly 5.8 lakh employees solve Ditto’s customer acquisition bottleneck at near-zero CAC.', icon: BriefcaseBusiness, accent: 'cyan' },
-    { label: 'Critical condition', title: 'Reject three years of autonomy.', text: "A rogue enterprise division threatens Ditto's trust-first brand and creates severe mis-selling risk.", icon: ShieldAlert, accent: 'red' },
+    { label: 'The recommendation', title: 'Proceed, but rewrite the control terms.', text: 'The workplace reach is too valuable to leave behind. Ditto should only proceed if the combined business follows Ditto’s advice standards.', icon: Target, accent: 'green' },
+    { label: 'The price', title: '30% equity + ₹25 Cr cash is favorable.', text: 'CoverGrid brings more revenue, but its ₹14 Cr net debt and weaker customer experience make the proposed price reasonable for Ditto.', icon: TrendingUp, accent: 'green' },
+    { label: 'Why now', title: 'Reach people when insurance becomes real.', text: '640 employers and nearly 5.8 lakh employees give Ditto a direct path around its customer-acquisition bottleneck, at near-zero cost to reach them.', icon: BriefcaseBusiness, accent: 'cyan' },
+    { label: 'The condition', title: 'Reject three years of founder control.', text: 'A separate enterprise division could keep the old commission-led behavior and undermine Ditto’s promise of clear, unbiased advice.', icon: ShieldAlert, accent: 'red' },
   ];
   return (
     <section id="summary" className="section-shell" data-section="summary">
@@ -214,12 +214,12 @@ function Rationale() {
   return (
     <section id="rationale" className="section-shell" data-section="rationale">
       <div className="page-frame">
-        <SectionHeader number="02" kicker="Strategic rationale" title="The workplace is the first insurance lesson." lede="CoverGrid owns the employer relationship and enrollment operation. Ditto owns the explanation that makes insurance useful. The merger puts the advisory layer at the point of need." />
+        <SectionHeader number="02" kicker="Why it makes sense" title="Work is where many people first meet insurance." lede="CoverGrid has the employer relationships and enrollment process. Ditto has the clear advice. Together, Ditto can help people understand what they already have and what they may still need." />
         <div className="mt-20 grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div className="space-y-7">
             <div className="data-line"><div className="eyebrow">Market shift</div><p className="mt-2 text-sm leading-7 text-[#c3cecb]">Employer-sponsored insurance is rapidly becoming a primary distribution channel in India.</p></div>
             <div className="data-line"><div className="eyebrow">The gap</div><p className="mt-2 text-sm leading-7 text-[#c3cecb]">Employees encounter health insurance at work, but often lack an understanding of its coverage limitations.</p></div>
-            <div className="data-line"><div className="eyebrow">Value creation</div><p className="mt-2 text-sm leading-7 text-[#c3cecb]">Cross-sell personal health and term insurance to a captive audience with near-zero acquisition cost.</p></div>
+            <div className="data-line"><div className="eyebrow">What changes</div><p className="mt-2 text-sm leading-7 text-[#c3cecb]">Offer personal health and term insurance to an audience Ditto can already reach, without the usual cost of finding new customers.</p></div>
           </div>
           <div className="relative min-h-[340px] border border-[var(--line)] bg-[#0e131d] p-8">
             <div className="absolute left-8 right-8 top-1/2 h-px bg-gradient-to-r from-[#78cbd7] via-[var(--green)] to-[var(--amber)]" />
@@ -235,7 +235,7 @@ function Rationale() {
                 </div>
               ))}
             </div>
-            <div className="absolute bottom-5 left-8 flex items-center gap-2 text-[10px] uppercase tracking-[.12em] text-[#68767d]"><ArrowRight size={12} className="text-[var(--green)]" /> Trust moves downstream</div>
+              <div className="absolute bottom-5 left-8 flex items-center gap-2 text-[10px] uppercase tracking-[.12em] text-[#68767d]"><ArrowRight size={12} className="text-[var(--green)]" /> Clear advice reaches more people</div>
           </div>
         </div>
       </div>
@@ -251,7 +251,7 @@ function Comparables() {
   return (
     <section id="comparables" className="section-shell" data-section="comparables">
       <div className="page-frame">
-        <SectionHeader number="03" kicker="Market comparables" title="This is a trust-and-channel deal, not a roll-up." lede="The precedent set is clear: integration architecture matters more than the headline price." />
+        <SectionHeader number="03" kicker="What similar deals teach us" title="The way the teams are combined matters more than the headline price." lede="Two large insurance deals point to the same lesson: bring leadership and standards together early, and do not spend heavily before the plan is clear." />
         <div className="mt-16 grid gap-5 lg:grid-cols-2">
           {deals.map((deal, index) => (
             <article key={deal.name} className="reveal panel panel-hover relative overflow-hidden p-8" data-reveal style={{ transitionDelay: `${index * 120}ms` }}>
@@ -271,15 +271,15 @@ function Financials() {
   return (
     <section id="financials" className="section-shell" data-section="financials">
       <div className="page-frame">
-        <SectionHeader number="04" kicker="Standalone baseline · FY26" title="Scale is CoverGrid. Quality is Ditto." lede="The combination begins with ₹323 Cr of revenue and ₹27 Cr of EBITDA — but the balance-sheet and trust profiles are not interchangeable." />
+        <SectionHeader number="04" kicker="Starting numbers · FY26" title="CoverGrid brings scale. Ditto brings a stronger base." lede="Together, the businesses start at ₹323 Cr of revenue and ₹27 Cr of operating earnings. The cash, debt, customer scores, and employee experience are very different." />
         <div className="mt-16 overflow-hidden border border-[var(--line)]">
           <div className="grid grid-cols-[1.3fr_1fr_1fr] border-b border-[var(--line)] bg-[#151b27] p-5 text-xs uppercase tracking-[.14em] text-[#728087]"><div>Metric</div><div className="text-[var(--cyan)]">Ditto</div><div className="text-[var(--amber)]">CoverGrid</div></div>
           {baselineRows.map(([metric, ditto, covergrid], index) => <div key={metric} className="reveal grid grid-cols-[1.3fr_1fr_1fr] border-b border-[var(--line)] p-5 text-sm" data-reveal style={{ transitionDelay: `${index * 50}ms` }}><div className="text-[#93a19f]">{metric}</div><div className="mono text-[#b9f0d0]">{ditto}</div><div className={`mono ${index === 5 ? 'text-[var(--red)]' : 'text-[#eacb8e]'}`}>{covergrid}</div></div>)}
         </div>
         <div className="mt-10 grid gap-px bg-[var(--line)] md:grid-cols-3">
-          <div className="bg-[#101620] p-6"><div className="eyebrow">Ditto NPS</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--cyan)]">74</div><div className="mt-2 text-xs text-[#718086]">91% employee satisfaction</div></div>
-          <div className="bg-[#101620] p-6"><div className="eyebrow">CoverGrid NPS</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--red)]">42</div><div className="mt-2 text-xs text-[#718086]">68% employee satisfaction</div></div>
-          <div className="bg-[#101620] p-6"><div className="eyebrow">Net debt spread</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--amber)]">₹56 Cr</div><div className="mt-2 text-xs text-[#718086]">Ditto cash vs CoverGrid net debt</div></div>
+           <div className="bg-[#101620] p-6"><div className="eyebrow">Ditto customer score (NPS)</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--cyan)]">74</div><div className="mt-2 text-xs text-[#718086]">91% employee satisfaction</div></div>
+           <div className="bg-[#101620] p-6"><div className="eyebrow">CoverGrid customer score (NPS)</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--red)]">42</div><div className="mt-2 text-xs text-[#718086]">68% employee satisfaction</div></div>
+           <div className="bg-[#101620] p-6"><div className="eyebrow">Cash vs debt</div><div className="mt-3 font-[var(--app-font-serif)] text-5xl text-[var(--amber)]">₹42 / ₹28 Cr</div><div className="mt-2 text-xs text-[#718086]">Ditto cash / CoverGrid debt</div></div>
         </div>
       </div>
     </section>
@@ -291,8 +291,8 @@ function ProForma() {
     <section className="section-shell" id="pro-forma" data-section="financials">
       <div className="page-frame">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div><div className="section-kicker"><span>05 / model</span> Five-year pro forma</div><h2 className="section-title">Operating leverage becomes visible.</h2></div>
-          <div className="mono text-right text-[10px] leading-6 text-[#76848a]">₹ Crore<br /><span className="text-[var(--green)]">■</span> Ditto <span className="text-[var(--cyan)]">■</span> CoverGrid <span className="text-[var(--amber)]">—</span> EBITDA</div>
+           <div><div className="section-kicker"><span>05 / outlook</span> Five-year financial outlook</div><h2 className="section-title">The combined business gets more profitable over time.</h2></div>
+           <div className="mono text-right text-[10px] leading-6 text-[#76848a]">₹ Crore<br /><span className="text-[var(--green)]">■</span> Ditto <span className="text-[var(--cyan)]">■</span> CoverGrid <span className="text-[var(--amber)]">—</span> Operating earnings</div>
         </div>
         <div className="mt-14 border border-[var(--line)] bg-[#0e131c] p-4 pt-8 md:p-8">
           <div className="h-[360px] w-full">
@@ -310,7 +310,7 @@ function ProForma() {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="mt-6 flex justify-between border-t border-[var(--line)] pt-5 text-[10px] uppercase tracking-[.12em] text-[#74838a]"><span>Combined pre-synergy revenue</span><span className="mono text-[var(--green-soft)]">₹323 Cr → ₹1,097 Cr</span></div>
+         <div className="mt-6 flex justify-between border-t border-[var(--line)] pt-5 text-[10px] uppercase tracking-[.12em] text-[#74838a]"><span>Combined revenue before extra growth</span><span className="mono text-[var(--green-soft)]">₹323 Cr → ₹1,097 Cr</span></div>
       </div>
     </section>
   );
@@ -322,16 +322,16 @@ function Synergy() {
   return (
     <section id="synergy" className="section-shell" data-section="synergy">
       <div className="page-frame">
-        <SectionHeader number="06" kicker="Synergy realization" title="The funnel is the deal." lede="A distribution asset becomes a growth engine only when Ditto’s education meets CoverGrid’s captive audience." />
+        <SectionHeader number="06" kicker="How growth is created" title="Reach only matters if people take action." lede="CoverGrid supplies the audience. Ditto supplies the education and advice that can turn that audience into personal policy customers." />
         <div className="mt-16 grid gap-14 lg:grid-cols-[1fr_.8fr]">
           <div className="space-y-3">
             {funnelSteps.map((step, index) => <div key={step.label} className="funnel-step reveal" data-reveal style={{ transitionDelay: `${index * 90}ms` }}><div className="mb-2 flex items-baseline justify-between"><span className="text-sm text-[#d3e0da]">{step.label}</span><span className="mono text-lg" style={{ color: step.color }}>{step.value}</span></div><div className="h-11 bg-[#151d27] p-1"><div className="flex h-full items-center px-4 text-[10px] text-[#0b1a15]" style={{ width: step.width, background: step.color }}><span>{step.note}</span></div></div></div>)}
-            <div className="flex items-center justify-between border-t border-[var(--line)] pt-5"><span className="eyebrow">Annual revenue impact</span><span className="font-[var(--app-font-serif)] text-3xl text-[var(--green)]">~₹10.4 Cr</span></div>
+             <div className="flex items-center justify-between border-t border-[var(--line)] pt-5"><span className="eyebrow">Estimated annual revenue</span><span className="font-[var(--app-font-serif)] text-3xl text-[var(--green)]">~₹10.4 Cr</span></div>
           </div>
           <div className="panel p-7">
-            <div className="flex items-center justify-between"><div className="eyebrow">Synergy scenario</div><span className="mono text-[10px] text-[#728087]">FY28 → FY31</span></div>
+             <div className="flex items-center justify-between"><div className="eyebrow">What could happen</div><span className="mono text-[10px] text-[#728087]">FY28 → FY31</span></div>
             <div className="mt-7 grid grid-cols-3 border-b border-[var(--line)]">{scenarios.map((item, index) => <button key={item.name} onClick={() => setScenarioIndex(index)} className={`border-b-2 px-2 pb-4 text-left text-xs transition-colors ${index === scenarioIndex ? 'border-[var(--green)] text-[var(--green-soft)]' : 'border-transparent text-[#718087] hover:text-[#b9c8c5]'}`} data-testid={`button-scenario-${item.name.toLowerCase()}`}>{item.name}</button>)}</div>
-            <div className="mt-9 flex items-end justify-between"><div><div className="eyebrow">FY28 EBITDA impact</div><div className="mt-2 font-[var(--app-font-serif)] text-5xl text-[#d9eee4]">+₹{scenario.fy28} <span className="text-lg text-[#75848a]">Cr</span></div></div><div className="text-right"><div className="eyebrow">FY31 EBITDA impact</div><div className="mt-2 font-[var(--app-font-serif)] text-5xl text-[var(--green)]">+₹{scenario.fy31} <span className="text-lg text-[#75848a]">Cr</span></div></div></div>
+             <div className="mt-9 flex items-end justify-between"><div><div className="eyebrow">FY28 operating earnings lift</div><div className="mt-2 font-[var(--app-font-serif)] text-5xl text-[#d9eee4]">+₹{scenario.fy28} <span className="text-lg text-[#75848a]">Cr</span></div></div><div className="text-right"><div className="eyebrow">FY31 operating earnings lift</div><div className="mt-2 font-[var(--app-font-serif)] text-5xl text-[var(--green)]">+₹{scenario.fy31} <span className="text-lg text-[#75848a]">Cr</span></div></div></div>
             <p className="mt-9 border-l border-[var(--green)] pl-4 text-sm leading-7 text-[#9ca9a7]">{scenario.description}</p>
           </div>
         </div>
@@ -344,14 +344,14 @@ function Valuation() {
   return (
     <section id="valuation" className="section-shell" data-section="valuation">
       <div className="page-frame">
-        <SectionHeader number="07" kicker="Valuation & terms" title="A raw revenue split is the wrong lens." lede="CoverGrid contributes more Day-1 scale. Ditto contributes the balance sheet, the brand, and the capability that makes that scale valuable." />
+        <SectionHeader number="07" kicker="Is the price fair?" title="Revenue alone does not tell the whole story." lede="CoverGrid contributes more revenue at the start. Ditto contributes cash, a stronger brand, and the advice model that is meant to make the combined reach valuable." />
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1fr_.8fr]">
           <div className="space-y-10">
             <div><div className="mb-3 flex justify-between text-xs text-[#a6b3b0]"><span>Revenue contribution · CoverGrid</span><span className="mono text-[var(--cyan)]">53.8%</span></div><div className="h-4 bg-[#1c2730]"><div className="h-full bg-[var(--cyan)]" style={{ width: '53.8%' }} /></div><div className="mt-2 text-[10px] text-[#68767d]">₹174 Cr out of ₹323 Cr combined</div></div>
             <div><div className="mb-3 flex justify-between text-xs text-[#a6b3b0]"><span>EBITDA contribution · CoverGrid</span><span className="mono text-[var(--amber)]">59.2%</span></div><div className="h-4 bg-[#1c2730]"><div className="h-full bg-[var(--amber)]" style={{ width: '59.2%' }} /></div><div className="mt-2 text-[10px] text-[#68767d]">₹16 Cr out of ₹27 Cr combined</div></div>
             <div><div className="mb-3 flex justify-between text-xs text-[#a6b3b0]"><span>Proposed equity · CoverGrid</span><span className="mono text-[var(--green)]">30.0%</span></div><div className="h-4 bg-[#1c2730]"><div className="h-full bg-[var(--green)]" style={{ width: '30%' }} /></div><div className="mt-2 text-[10px] text-[#68767d]">After net debt, quality and cash adjustments</div></div>
           </div>
-          <div className="border-l border-[var(--green)] pl-8"><div className="eyebrow">Phase 2 conclusion</div><p className="mt-5 font-[var(--app-font-serif)] text-3xl leading-[1.1] tracking-[-.04em] text-[#e1eee8]">Accept the structure. Renegotiate the control.</p><p className="mt-6 text-sm leading-7 text-[#929f9f]">CoverGrid’s ₹14 Cr net debt and declining NPS are not footnotes. They are the reason 30% equity + ₹25 Cr cash is a fair, risk-adjusted price for Ditto.</p></div>
+           <div className="border-l border-[var(--green)] pl-8"><div className="eyebrow">Bottom line</div><p className="mt-5 font-[var(--app-font-serif)] text-3xl leading-[1.1] tracking-[-.04em] text-[#e1eee8]">Accept the price. Rewrite the control terms.</p><p className="mt-6 text-sm leading-7 text-[#929f9f]">CoverGrid’s ₹14 Cr net debt and lower customer score help explain why 30% equity + ₹25 Cr cash is a reasonable price for Ditto.</p></div>
         </div>
       </div>
     </section>
@@ -364,12 +364,12 @@ function DecisionMatrix() {
   return (
     <section id="structure" className="section-shell" data-section="structure">
       <div className="page-frame">
-        <SectionHeader number="08" kicker="Alternative deal structures" title="The governance terms are toxic. The financial terms are not." lede="The Board scored five pathways against three constraints: preserve the trust model, maximize long-term value, minimize integration risk." />
+        <SectionHeader number="08" kicker="Options" title="The price works. The control terms need work." lede="The board compared five ways forward against three simple tests: protect the advice model, create long-term value, and keep the transition manageable." />
         <div className="mt-14 overflow-hidden border border-[var(--line)]">
-          <div className="table-row header"><div>Pathway</div><div>Value creation</div><div>Trust / brand</div><div>Integration</div><div>Verdict</div></div>
+           <div className="table-row header"><div>Pathway</div><div>Value</div><div>Advice model</div><div>Change effort</div><div>Decision</div></div>
           {decisionOptions.map((option, index) => <div key={option.title} className={`matrix-row table-row ${selected === index ? 'selected' : ''}`} onClick={() => setSelected(index)} data-testid={`button-decision-${index}`}><div className="flex items-center gap-3 text-[#dbe8e3]"><span className="mono text-[10px] text-[#68767d]">0{index + 1}</span>{option.title}{index === 1 ? <span className="border border-[var(--green)] px-2 py-1 text-[9px] uppercase tracking-[.1em] text-[var(--green)]">Recommended</span> : null}</div><div className="text-[#a2b0ae]">{option.score}</div><div className={option.trust === 'Severe' ? 'text-[var(--red)]' : 'text-[#a2b0ae]'}>{option.trust}</div><div className="text-[#a2b0ae]">{option.integration}</div><div className={option.tone === 'green' ? 'text-[var(--green)]' : option.tone === 'amber' ? 'text-[var(--amber)]' : option.tone === 'red' ? 'text-[var(--red)]' : 'text-[#819096]'}>{option.verdict}</div>{selected === index ? <div className="col-span-5 border-t border-[var(--line)] py-4 pr-4 text-sm leading-6 text-[#9eaca9]">{option.detail}</div> : null}</div>)}
         </div>
-        <div className="mt-7 flex items-center gap-3 text-xs text-[#899796]"><Info size={15} className="text-[var(--green)]" /> The recommended path preserves the proposed 30% + ₹25 Cr economics while pulling governance inside Ditto's compliance system.</div>
+         <div className="mt-7 flex items-center gap-3 text-xs text-[#899796]"><Info size={15} className="text-[var(--green)]" /> The recommended path keeps the proposed 30% + ₹25 Cr economics while putting the combined business under Ditto’s customer and compliance standards.</div>
       </div>
     </section>
   );
@@ -377,13 +377,13 @@ function DecisionMatrix() {
 
 function Risks() {
   const risks = [
-    { title: 'Data governance & security', severity: 'Existential', icon: Database, intro: 'Bridging two network environments before controls are harmonized could recreate the UnitedHealth–Change Healthcare failure mode.', checks: ['Complete full audit of 5.8 lakh employee data before close', 'Harmonize security controls before systems are bridged', 'Index Phase 1 DD on historic claims dispute data'] },
-    { title: 'Mis-selling & culture', severity: 'Severe', icon: ShieldAlert, intro: "CoverGrid's 68% ESAT and 42 NPS reflect an aggressive commission culture that cannot sit outside Ditto's advisory model.", checks: ['Dismantle high-variable commission structures', 'Tie incentives to CSAT and policy retention', 'Upskill agents from salesmen to advisors'] },
+     { title: 'Keeping customer data safe', severity: 'Highest priority', icon: Database, intro: 'The source case uses the UnitedHealth–Change Healthcare breach as a warning: security controls must be aligned before the two systems connect.', checks: ['Review all 5.8 lakh employee records before close', 'Align security controls before systems are connected', 'Review past claims disputes during the first fact-finding phase'] },
+     { title: 'Selling the right way', severity: 'High priority', icon: ShieldAlert, intro: "CoverGrid’s 68% employee satisfaction and 42 customer score point to a commission-led culture that cannot sit outside Ditto’s advice model.", checks: ['Replace high-variable commission incentives', 'Tie bonuses to customer satisfaction and policy retention', 'Train agents to give advice, not just sell volume'] },
   ];
   return (
     <section id="risks" className="section-shell" data-section="risks">
       <div className="page-frame">
-        <SectionHeader number="09" kicker="Critical risks" title="Protect the moat before you chase the multiple." />
+        <SectionHeader number="09" kicker="What could go wrong" title="Protect trust before chasing growth." />
         <div className="mt-16 grid gap-5 lg:grid-cols-2">{risks.map(({ title, severity, icon: Icon, intro, checks }, index) => <article key={title} className="risk-stripe panel panel-hover p-8"><div className="flex justify-between"><div><div className="eyebrow text-[var(--red)]">{severity} risk</div><h3 className="mt-5 font-[var(--app-font-serif)] text-3xl tracking-[-.04em]">{title}</h3></div><Icon className="text-[var(--red)]" size={23} strokeWidth={1.2} /></div><p className="mt-7 max-w-[470px] text-sm leading-7 text-[#9ca9a7]">{intro}</p><div className="mt-7 space-y-3 border-t border-[var(--line)] pt-6">{checks.map(check => <div key={check} className="flex items-start gap-3 text-xs leading-5 text-[#c6d2ce]"><Check size={14} className="mt-0.5 shrink-0 text-[var(--green)]" />{check}</div>)}</div></article>)}</div>
       </div>
     </section>
@@ -396,7 +396,7 @@ function Roadmap() {
   return (
     <section id="roadmap" className="section-shell" data-section="roadmap">
       <div className="page-frame">
-        <SectionHeader number="10" kicker="Integration roadmap" title="Quarantine, then assimilate." lede="Integration is deliberately heavy-handed: security first, incentives second, systems third, brand last." />
+        <SectionHeader number="10" kicker="The first 18 months" title="Start carefully, then bring the businesses together." lede="The order matters: protect data first, change incentives second, combine tools third, and retire the old brand last." />
         <div className="relative mt-20">
           <div className="roadmap-line hidden md:block" />
           <div className="grid gap-10 md:grid-cols-4">{roadmap.map(({ period, title, icon: Icon }, index) => <button key={period} className={`milestone text-left ${selected === index ? 'selected' : ''}`} onClick={() => setSelected(index)} data-testid={`button-roadmap-${index}`}><div className="flex items-center gap-4 md:block"><div className="milestone-dot mb-5" /><div className="eyebrow text-[var(--green)]">{period}</div><div className="mt-3 flex items-center gap-2 text-sm font-semibold text-[#dce8e3]"><Icon size={15} strokeWidth={1.3} />{title}</div></div></button>)}</div>
@@ -409,14 +409,14 @@ function Roadmap() {
 
 function RedLines() {
   const lines = [
-    { label: 'Cash limit', value: '₹35 Cr', note: 'Do not severely deplete working capital while absorbing ₹28 Cr of debt.', icon: Landmark },
-    { label: 'Equity limit', value: '38%', note: "Do not over-value CoverGrid's low-quality revenue or under-value Ditto's brand equity.", icon: Scale },
-    { label: 'Governance limit', value: 'No autonomy', note: "If founders refuse strict mis-selling audits and CSAT-linked incentives, the deal is un-investable.", icon: LockKeyhole },
+     { label: 'Cash limit', value: '₹35 Cr', note: 'Paying more would leave too little cash to complete the transition and absorb ₹28 Cr of debt.', icon: Landmark },
+     { label: 'Equity limit', value: '38%', note: 'Above this level, Ditto would give too much of the combined company for weaker-quality revenue.', icon: Scale },
+     { label: 'Governance limit', value: 'No autonomy', note: 'If founders will not accept sales reviews and customer-satisfaction incentives, do not proceed.', icon: LockKeyhole },
   ];
   return (
     <section id="red-lines" className="section-shell" data-section="red-lines">
       <div className="page-frame">
-        <SectionHeader number="11" kicker="Board red lines" title="Know the number that ends the conversation." lede="The proposed economics are acceptable. M&A negotiations are fluid; these are not." />
+        <SectionHeader number="11" kicker="Walk-away limits" title="Know what ends the conversation." lede="The proposed price is acceptable. These are the limits the board should not cross." />
         <div className="mt-16 grid gap-4 lg:grid-cols-3">{lines.map(({ label, value, note, icon: Icon }, index) => <article key={label} className="redline-card panel panel-hover p-7"><div className="flex justify-between"><div className="eyebrow text-[var(--amber)]">0{index + 1} / {label}</div><Icon size={17} className="text-[var(--amber)]" strokeWidth={1.3} /></div><div className="mt-10 font-[var(--app-font-serif)] text-5xl tracking-[-.06em] text-[#f0d398]">{value}</div><p className="mt-6 text-sm leading-7 text-[#9ea9a6]">{note}</p><div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[.1em] text-[var(--red)]"><X size={13} /> Walk away beyond this line</div></article>)}</div>
       </div>
     </section>
@@ -455,24 +455,24 @@ function Simulator() {
   const controls = [
     { key: 'equity', label: 'CoverGrid equity stake', min: 10, max: 50, value: values.equity, display: `${values.equity}%` },
     { key: 'cash', label: 'Cash consideration', min: 0, max: 50, value: values.cash, display: `₹${values.cash} Cr` },
-    { key: 'dittoGrowth', label: 'Ditto revenue growth · Yr5 taper', min: 10, max: 50, value: values.dittoGrowth, display: `${values.dittoGrowth}%` },
-    { key: 'cgGrowth', label: 'CoverGrid revenue growth · Yr5 taper', min: 5, max: 45, value: values.cgGrowth, display: `${values.cgGrowth}%` },
-    { key: 'synergy', label: 'Yr5 revenue synergy', min: 0, max: 150, value: values.synergy, display: `₹${values.synergy} Cr` },
+    { key: 'dittoGrowth', label: 'Ditto year 5 revenue growth', min: 10, max: 50, value: values.dittoGrowth, display: `${values.dittoGrowth}%` },
+    { key: 'cgGrowth', label: 'CoverGrid year 5 revenue growth', min: 5, max: 45, value: values.cgGrowth, display: `${values.cgGrowth}%` },
+    { key: 'synergy', label: 'Extra year 5 revenue', min: 0, max: 150, value: values.synergy, display: `₹${values.synergy} Cr` },
   ] as const;
   return (
     <section id="simulator" className="section-shell" data-section="simulator">
       <div className="page-frame">
-        <SectionHeader number="12" kicker="Interactive financial simulator" title="Stress-test the price. Watch the engine." lede="The model preserves the reference mechanics: linear growth taper, linear margin interpolation, and synergy revenue at a 40% EBITDA margin." />
+        <SectionHeader number="12" kicker="Try the numbers" title="Change the assumptions. See the result." lede="Move the five sliders to test the price, growth, and extra revenue assumptions. The model follows the supplied formulas exactly." />
         <div className="mt-16 grid gap-px border border-[var(--line)] bg-[var(--line)] lg:grid-cols-[.75fr_1.25fr]">
           <div className="bg-[#111722] p-7 md:p-9">
-            <div className="flex items-center justify-between"><div className="eyebrow">Deal assumptions</div><button onClick={() => setValues({ equity: 30, cash: 25, dittoGrowth: 25, cgGrowth: 15, synergy: 80 })} className="mono text-[10px] text-[#78868c] underline decoration-[var(--green)] underline-offset-4 hover:text-[var(--green)]" data-testid="button-reset-simulator">Reset model</button></div>
+            <div className="flex items-center justify-between"><div className="eyebrow">Change the assumptions</div><button onClick={() => setValues({ equity: 30, cash: 25, dittoGrowth: 25, cgGrowth: 15, synergy: 80 })} className="mono text-[10px] text-[#78868c] underline decoration-[var(--green)] underline-offset-4 hover:text-[var(--green)]" data-testid="button-reset-simulator">Reset</button></div>
               <div className="mt-9 space-y-7">{controls.map(control => <label className="block" key={control.key}><div className="mb-3 flex justify-between gap-4 text-xs text-[#b8c5c1]"><span>{control.label}</span><span className="mono text-[var(--green-soft)]">{control.display}</span></div><input className="range-input" type="range" min={control.min} max={control.max} value={control.value} style={{ '--range': `${((control.value - control.min) / (control.max - control.min)) * 100}%` } as CSSProperties} onChange={event => setValues(prev => ({ ...prev, [control.key]: Number(event.target.value) }))} data-testid={`input-simulator-${control.key}`} /></label>)}</div>
-            <div className={`mt-9 border p-5 ${destructive ? 'border-[var(--red)] bg-[rgba(229,107,98,.08)]' : 'border-[var(--green)] bg-[rgba(26,208,121,.07)]'}`} data-testid="status-deal-assessment"><div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[.12em]" style={{ color: destructive ? 'var(--red)' : 'var(--green)' }}><span className="h-2 w-2 rounded-full" style={{ background: destructive ? 'var(--red)' : 'var(--green)' }} /> Deal assessment: {destructive ? 'Value destructive' : 'Accretive'}</div><p className="mt-4 text-xs leading-6 text-[#9ba8a5]">{destructive ? `Giving up ${values.equity}% equity and ₹${values.cash} Cr cash overvalues CoverGrid's debt-burdened business and depletes Ditto's working capital integration reserves.` : `A ${values.equity}% stake and ₹${values.cash} Cr cash properly discounts CoverGrid's ₹14 Cr net debt while preserving Ditto's balance sheet for integration.`}</p></div>
+             <div className={`mt-9 border p-5 ${destructive ? 'border-[var(--red)] bg-[rgba(229,107,98,.08)]' : 'border-[var(--green)] bg-[rgba(26,208,121,.07)]'}`} data-testid="status-deal-assessment"><div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[.12em]" style={{ color: destructive ? 'var(--red)' : 'var(--green)' }}><span className="h-2 w-2 rounded-full" style={{ background: destructive ? 'var(--red)' : 'var(--green)' }} /> Deal assessment: {destructive ? 'Outside the board limits' : 'Within the board limits'}</div><p className="mt-4 text-xs leading-6 text-[#9ba8a5]">{destructive ? `At ${values.equity}% equity and ₹${values.cash} Cr cash, the offer crosses the board’s 38% equity or ₹35 Cr cash limit.` : `At ${values.equity}% equity and ₹${values.cash} Cr cash, the offer stays within the board’s 38% equity and ₹35 Cr cash limits.`}</p></div>
           </div>
           <div className="bg-[#0d121b] p-4 pt-8 md:p-9">
-            <div className="mb-4 flex items-center justify-between"><div className="eyebrow">Live five-year output</div><div className="mono text-[10px] text-[#708087]">Revenue / EBITDA · ₹ Cr</div></div>
+             <div className="mb-4 flex items-center justify-between"><div className="eyebrow">Live five-year result</div><div className="mono text-[10px] text-[#708087]">Revenue / operating earnings · ₹ Cr</div></div>
             <div className="h-[390px] w-full"><ResponsiveContainer width="100%" height="100%"><ComposedChart data={data} margin={{ top: 8, right: 4, left: -18, bottom: 0 }}><CartesianGrid stroke="rgba(218,236,229,.08)" vertical={false} /><XAxis dataKey="year" stroke="#6f7e84" tickLine={false} axisLine={false} tick={{ fontSize: 10, fontFamily: 'DM Mono' }} /><YAxis yAxisId="revenue" stroke="#6f7e84" tickLine={false} axisLine={false} tick={{ fontSize: 10, fontFamily: 'DM Mono' }} /><YAxis yAxisId="ebitda" orientation="right" stroke="#e9b866" tickLine={false} axisLine={false} tick={{ fontSize: 10, fontFamily: 'DM Mono' }} /><Tooltip contentStyle={{ background: '#17202a', border: '1px solid rgba(26,208,121,.3)', fontFamily: 'DM Mono', fontSize: 11 }} cursor={{ fill: 'rgba(255,255,255,.03)' }} /><Bar yAxisId="revenue" dataKey="ditto" stackId="rev" fill="#1ad079" /><Bar yAxisId="revenue" dataKey="covergrid" stackId="rev" fill="#78cbd7" /><Bar yAxisId="revenue" dataKey="synergy" stackId="rev" fill="#e9b866" /><Line yAxisId="ebitda" type="monotone" dataKey="ebitda" stroke="#f0f7f4" strokeWidth={2.5} dot={{ fill: '#f0f7f4', r: 3, strokeWidth: 0 }} /></ComposedChart></ResponsiveContainer></div>
-            <div className="mt-3 grid grid-cols-4 gap-2 border-t border-[var(--line)] pt-4 text-[10px] text-[#728087]"><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--green)]" />Ditto rev</span><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--cyan)]" />CoverGrid rev</span><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--amber)]" />Synergy</span><span><i className="mr-2 inline-block h-2 w-2 bg-[#f0f7f4]" />EBITDA</span></div>
+             <div className="mt-3 grid grid-cols-4 gap-2 border-t border-[var(--line)] pt-4 text-[10px] text-[#728087]"><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--green)]" />Ditto revenue</span><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--cyan)]" />CoverGrid revenue</span><span><i className="mr-2 inline-block h-2 w-2 bg-[var(--amber)]" />Extra revenue</span><span><i className="mr-2 inline-block h-2 w-2 bg-[#f0f7f4]" />Operating earnings</span></div>
           </div>
         </div>
       </div>
@@ -482,17 +482,17 @@ function Simulator() {
 
 function NextSteps() {
   const actions = [
-    'Formally reject the “3-year autonomous leadership” clause in the current non-binding proposal.',
-    'Issue a revised term sheet holding the 30% equity and ₹25 Crore cash lines, but introducing the 12-month CSAT-linked earn-out.',
-    'Initiate Phase 1 Due Diligence, heavily indexing on CoverGrid’s IT security architecture and historic mis-selling / claims dispute data.',
+    'Reject the three-year founder-control clause in the current non-binding offer.',
+    'Issue a revised offer keeping the 30% equity and ₹25 Cr cash, with a 12-month performance period tied to customer satisfaction.',
+    'Begin the first fact-finding review, focusing on CoverGrid’s security systems and past sales and claims disputes.',
   ];
   return (
     <section id="next-steps" className="section-shell footer-grid" data-section="next-steps">
       <div className="page-frame">
-        <SectionHeader number="13" kicker="Next steps" title="Move from thesis to term sheet." lede="Three immediate actions turn a strategically sound merger into an investable one." />
+        <SectionHeader number="13" kicker="What happens next" title="Turn the recommendation into a clear offer." lede="Three actions make the opportunity concrete without giving up Ditto’s standards." />
         <div className="mt-16 grid gap-0 border-y border-[var(--line)]">{actions.map((action, index) => <div key={action} className="flex gap-7 border-b border-[var(--line)] py-7 last:border-0"><div className="mono pt-1 text-sm text-[var(--green)]">0{index + 1}</div><p className="max-w-[760px] font-[var(--app-font-serif)] text-2xl leading-[1.15] tracking-[-.03em] text-[#dce9e3]">{action}</p></div>)}</div>
-        <div className="mt-20 flex flex-col justify-between gap-8 border-t border-[var(--green)] pt-7 md:flex-row md:items-start"><div><div className="eyebrow text-[var(--green)]">Recommendation</div><div className="mt-4 font-[var(--app-font-serif)] text-4xl tracking-[-.05em] text-[#e5f1eb]">Proceed — with control.</div></div><div className="max-w-[350px] text-sm leading-7 text-[#879692]">The opportunity is a distribution unlock. The condition is non-negotiable: Ditto’s trust model must be the operating system of the combined business.</div></div>
-        <footer className="mt-32 flex flex-col justify-between gap-4 border-t border-[var(--line)] pt-5 text-[10px] uppercase tracking-[.12em] text-[#65747b] md:flex-row"><span>Ditto–CoverGrid Merger / Confidential</span><span>M&A Strategy Team · FY26 case study</span></footer>
+         <div className="mt-20 flex flex-col justify-between gap-8 border-t border-[var(--green)] pt-7 md:flex-row md:items-start"><div><div className="eyebrow text-[var(--green)]">Recommendation</div><div className="mt-4 font-[var(--app-font-serif)] text-4xl tracking-[-.05em] text-[#e5f1eb]">Proceed — with clear standards.</div></div><div className="max-w-[350px] text-sm leading-7 text-[#879692]">The opportunity is direct access to a large workplace audience. The condition is simple: the combined business must give advice the Ditto way.</div></div>
+         <footer className="mt-32 flex flex-col justify-between gap-4 border-t border-[var(--line)] pt-5 text-[10px] uppercase tracking-[.12em] text-[#65747b] md:flex-row"><span>Merger Brief: Ditto × CoverGrid / Confidential</span><span>Strategy review · FY26 case study</span></footer>
       </div>
     </section>
   );
@@ -502,7 +502,7 @@ function Nav({ active, onNavigate }: { active: SectionId; onNavigate: (id: Secti
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <aside className="nav-rail">
-      <div className="nav-brand flex h-28 items-center gap-3 border-b border-[var(--line)] px-6"><div className="flex h-8 w-8 items-center justify-center border border-[var(--green)] text-[var(--green)]"><span className="font-[var(--app-font-serif)] text-lg">D</span></div><div className="nav-brand-copy"><div className="text-xs font-semibold tracking-[.04em] text-[#dce9e3]">DITTO<span className="text-[var(--green)]">×</span>CG</div><div className="mt-1 mono text-[9px] text-[#6d7b82]">DEAL ROOM / 01</div></div><button className="ml-auto hidden text-[#879792]" onClick={() => setMobileOpen(!mobileOpen)} data-testid="button-toggle-nav"><Menu size={17} /></button></div>
+      <div className="nav-brand flex h-28 items-center gap-3 border-b border-[var(--line)] px-6"><div className="flex h-8 w-8 items-center justify-center border border-[var(--green)] text-[var(--green)]"><span className="font-[var(--app-font-serif)] text-lg">D</span></div><div className="nav-brand-copy"><div className="text-[10px] font-semibold leading-4 tracking-[.05em] text-[#dce9e3]">Merger Brief:</div><div className="text-[10px] font-semibold leading-4 tracking-[.03em] text-[#dce9e3]">Ditto <span className="text-[var(--green)]">×</span> CoverGrid</div><div className="mt-1 mono text-[9px] text-[#6d7b82]">STRATEGY REVIEW / 01</div></div><button className="ml-auto hidden text-[#879792]" onClick={() => setMobileOpen(!mobileOpen)} data-testid="button-toggle-nav"><Menu size={17} /></button></div>
       <div className={`nav-links py-7 ${mobileOpen ? 'block' : ''}`}>{navItems.map(({ id, label, icon: Icon }) => <button key={id} className={`nav-link ${active === id ? 'active' : ''}`} onClick={() => { onNavigate(id); setMobileOpen(false); }} data-testid={`link-nav-${id}`}><Icon size={14} strokeWidth={1.4} /><span>{label}</span></button>)}</div>
       <div className="nav-caption absolute bottom-7 left-6 right-6 border-t border-[var(--line)] pt-4 text-[9px] leading-5 text-[#617078]">Source of truth<br />Full content / FY26 case</div>
     </aside>
