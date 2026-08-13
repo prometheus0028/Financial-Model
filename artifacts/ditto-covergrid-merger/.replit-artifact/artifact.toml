@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Ditto–CoverGrid Merger"
+description = "An interactive M&A strategy case study for the fictional Ditto–CoverGrid insurtech merger, with financial models, integration risks, decision pathways, and a live deal simulator."
+version = "1.0.0"
+id = "artifacts/ditto-covergrid-merger"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19027
+
+[services.development]
+run = "pnpm --filter @workspace/ditto-covergrid-merger run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ditto-covergrid-merger", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ditto-covergrid-merger/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19027"
+BASE_PATH = "/"

@@ -1,0 +1,180 @@
+REPLIT PROMPT — Ditto–CoverGrid M&A Interactive Site
+(Paste this whole thing into Replit's AI / Agent prompt box)
+
+====================================================================
+PROJECT
+====================================================================
+Build a single-page, highly interactive web app that presents an M&A
+strategy case study: "The Ditto–CoverGrid Merger." This is a financial
+analysis site for a fictional Indian insurtech merger. It should feel
+like a premium fintech product (think Stripe, Linear, or a modern
+VC memo site) — NOT like a generic AI-generated template. Avoid
+default Bootstrap/Tailwind-starter looks, avoid centered-card-on-white
+layouts, avoid generic blue gradients, avoid stock hero sections with
+a big centered headline + two buttons. This should look bespoke,
+considered, and editorial.
+
+Use React + Vite (or Next.js if Replit defaults to it) + Tailwind CSS
++ Framer Motion for animation + Chart.js or Recharts for data
+visualization. Use a component-based architecture, not one giant file.
+
+====================================================================
+DESIGN DIRECTION (be specific, avoid "vibe coded" defaults)
+====================================================================
+- Dark, editorial, "deal room" aesthetic: near-black background
+  (#0B0B14 or similar deep indigo-black), NOT pure #000.
+- Accent color: a confident emerald/green (#1AD079 or similar) used
+  sparingly — for key numbers, active states, chart highlights, and
+  section markers — never as a wall of color.
+- Secondary text color: soft off-white (#F0F9FF / #E5E7EB), never
+  pure white on pure black (too harsh).
+- Typography: pair a geometric/display sans for headlines (e.g.
+  "Space Grotesk", "General Sans", or "Tomorrow" from Google Fonts)
+  with a clean workhorse sans for body copy (e.g. "Inter" or "DM
+  Sans"). Large, confident type scale for section headers (48–72px),
+  tight line-height, generous letter-spacing on eyebrow/kicker labels.
+- Layout: asymmetric grid, not everything centered. Use a persistent
+  left-hand or top sticky nav with section anchors (Executive Summary,
+  Rationale, Comparables, Financials, Synergy Model, Valuation, Deal
+  Structures, Risks, Integration Roadmap, Red Lines, Simulator, Next
+  Steps). Smooth-scroll between sections with scroll-spy highlighting
+  the active nav item.
+- Micro-interactions: numbers count up when they scroll into view,
+  cards have subtle hover lift + border-glow, section transitions use
+  fade/slide-up on scroll (Framer Motion's `whileInView`), and the
+  financial simulator sliders should have smooth, immediate chart
+  updates (no lag, no page reload).
+- Avoid: emoji as icons, generic checkmark/rocket iconography,
+  default Chart.js color palette (theme the charts to match the
+  green/off-white/dark palette), Comic-Sans-tier rounded corners
+  everywhere, drop shadows that look like Bootstrap defaults.
+- Use lucide-react for icons, styled minimally (thin stroke, muted
+  color, brightening to the accent green on hover/active).
+
+====================================================================
+SITE STRUCTURE / SECTIONS
+====================================================================
+Build these as distinct, scroll-anchored sections on one page (with a
+sticky nav to jump between them), using the CONTENT from the attached
+"Ditto_CoverGrid_Content.txt" file. Do not invent new numbers — use
+exactly the figures in that file.
+
+1. Hero
+   - Big editorial headline: "The Ditto–CoverGrid Merger"
+   - Sub-headline: the strategic thesis in one sentence
+   - A few animated "headline stats" (₹25 Cr cash, 30% equity, 640
+     employers, 5.8L employees) that count up on load
+   - A subtle animated background (e.g. faint animated line chart or
+     particle/grid pattern in the dark background, low opacity)
+
+2. Executive Summary
+   - The verdict, financial stance, strategic rationale, and the
+     critical governance condition, styled as a 2x2 or asymmetric
+     card grid, not a plain paragraph dump
+
+3. Strategic Rationale & Insurance-Education Gap
+   - Short narrative + a simple animated diagram (can be SVG or
+     Framer Motion) showing CoverGrid's distribution → Ditto's
+     advisory layer → cross-sell flow
+
+4. Transaction Archetype & Market Comparables
+   - Two comparable-deal cards (Marsh & McLennan/JLT success vs.
+     Aon–WTW failure) with a "similarity score" visualized as a
+     radial/gauge or horizontal bar, plus the lesson from each
+
+5. Standalone Financial Baseline
+   - A clean comparison table/card pair (Ditto vs CoverGrid FY26)
+     styled as data cards, not a plain HTML table
+
+6. 5-Year Pro Forma Financial Model
+   - An interactive stacked bar + line combo chart (Revenue stacked
+     by entity, EBITDA as an overlaid line) using the FY26–FY31 data
+
+7. Synergy Realization & Cross-Sell Funnel
+   - An animated funnel visualization (580,000 → 174,000 → 17,400 →
+     6,960) — use a real funnel/step chart component or custom SVG,
+     not a plain list
+   - Show Conservative / Base / Aggressive synergy scenarios as
+     toggleable tabs or a small bar chart comparison
+
+8. Valuation & Terms Assessment
+   - Before/after adjustment breakdown (revenue/EBITDA contribution
+     % vs. final equity ask) — a good fit for a horizontal
+     stacked/diverging bar or a simple animated bridge chart
+
+9. Alternative Deal Structures (Decision Matrix)
+   - Render the 5 options (Proceed as Proposed, Renegotiate,
+     Minority Stake, Strategic Partnership, Walk Away) as an
+     interactive matrix/grid — clicking an option expands its
+     rationale. Visually flag "Renegotiate" as the recommended path.
+
+10. Critical Risks (Data Governance + Mis-Selling/Culture)
+    - Two risk cards with severity indicators and mitigation
+      checklists
+
+11. Integration Roadmap
+    - A horizontal interactive timeline (Day 0–30, Months 1–3,
+      Months 6–12, Month 18) — clicking/hovering a milestone reveals
+      detail
+
+12. Board Red Lines
+    - Three "walk-away" threshold cards (Cash Limit ₹35 Cr, Equity
+      Limit 38%, Governance Limit) styled as warning/limit gauges
+
+13. INTERACTIVE FINANCIAL SIMULATOR (important — build this as a
+    real working feature, not a mockup)
+    - Rebuild the logic from the provided merger-model.html reference
+      as a native React component (sliders + live Chart.js/Recharts
+      chart), styled to match the rest of the site (dark theme, green
+      accent) instead of the default white dashboard look.
+    - Sliders: CoverGrid Equity Stake (10–50%), Cash Consideration
+      (₹0–50 Cr), Ditto Rev Growth Yr5 Taper (10–50%), CoverGrid Rev
+      Growth Yr5 Taper (5–45%), Yr5 Revenue Synergy (₹0–150 Cr)
+    - Live stacked bar chart: Ditto Rev / CoverGrid Rev / Synergy Rev,
+      with Combined EBITDA as an overlaid line on a secondary axis
+    - A live "Deal Assessment" verdict box that turns from
+      accretive/green to dilutive/red based on whether equity > 38%
+      or cash > ₹35 Cr (reuse the exact calculation logic from the
+      reference file, don't change the math)
+
+14. Next Steps
+    - The 3 immediate actions as a simple numbered close-out section
+      with a strong final CTA-style layout (no literal "buy now"
+      button needed — this is a strategy memo, so make the CTA
+      something like "Download the full case" or "View the funnel
+      model")
+
+====================================================================
+TECHNICAL REQUIREMENTS
+====================================================================
+- Fully responsive (mobile nav should collapse into a hamburger or
+  bottom tab bar, charts should resize/reflow)
+- All chart/simulator math must exactly match the reference
+  merger-model.html logic (same taper formula, same margin
+  interpolation, same fairness threshold at 38% equity / ₹35 Cr cash)
+- No placeholder Lorem Ipsum — use the real content from the content
+  file throughout
+- Keep state in React (useState/useReducer) — no localStorage
+- Organize code into components: Nav, Hero, ExecutiveSummary,
+  Rationale, Comparables, FinancialBaseline, ProFormaChart,
+  SynergyFunnel, Valuation, DecisionMatrix, RiskCards,
+  IntegrationTimeline, RedLines, Simulator, NextSteps, Footer
+- Add scroll-spy nav highlighting and smooth anchor scrolling
+- Add a subtle page-load animation sequence for the hero stats
+
+====================================================================
+WHAT "DON'T MAKE IT LOOK VIBE-CODED" MEANS HERE
+====================================================================
+- No default shadcn "card with icon in a circle" pattern repeated 8
+  times identically
+- No centered hero with generic gradient text
+- No unstyled default Chart.js look (grey grid, default legend
+  position) — theme every chart deliberately
+- Vary section layouts — don't make every section "heading + 3-card
+  grid." Mix full-bleed charts, asymmetric two-column splits, timeline
+  layouts, and matrix/table layouts.
+- Use real typographic hierarchy and whitespace instead of boxing
+  everything in cards with heavy shadows
+
+Attach/reference the two text files (content + this prompt) as the
+source of truth for copy and structure.
